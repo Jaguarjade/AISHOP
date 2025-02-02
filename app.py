@@ -1,13 +1,14 @@
 from flask import Flask, render_template
 
-app = Flask(__name__)
+# Ensure Flask looks in the "templates" folder
+app = Flask(__name__, template_folder="templates")
 
 @app.route('/')
 def home():
     return render_template('index.html', products=[
-        {"title": "Wireless Earbuds", "price": "$59.99", "url": "https://www.affiliate-link.com/earbuds", "image_url": "earbuds.jpg"},
-        {"title": "Smart Watch", "price": "$99.99", "url": "https://www.affiliate-link.com/watch", "image_url": "watch.jpg"}
+        {'title': 'Product 1', 'price': '$10'},
+        {'title': 'Product 2', 'price': '$20'}
     ])
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
